@@ -21,6 +21,8 @@ namespace HW
         public string Emailtext;
         public string ScuExtext;
         public string ScuExAAtext;
+
+
         public void setUserNametext()
         {
             using (var cn = new SqlConnection(Settings.Default.NW))
