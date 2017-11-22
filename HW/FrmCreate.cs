@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace HW
 {
-    public partial class FrmCreate : Form
+    public partial class FrmCreate : FrmClsMain
     {
         public FrmCreate()
         {

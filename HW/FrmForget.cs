@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace HW
 {
-    public partial class FrmForget : Form
+    public partial class FrmForget : FrmClsMain
     {
         public FrmForget()
         {
             InitializeComponent();
+        }
+
+        private void UserNametext_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
