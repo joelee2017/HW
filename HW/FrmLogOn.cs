@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HW.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,13 @@ namespace HW
             InitializeComponent();
         }
 
+        private void FrmLogOn_Load(object sender, EventArgs e)
+        {
+            UserNametext.Text = Settings.Default.username;
+            PassWordtext.Text = Settings.Default.password;
+            //預設帳號密碼
+        }
+
         private void BtnCreate_Click(object sender, EventArgs e)
         {
             FrmCreate fc = new FrmCreate();
@@ -32,9 +40,20 @@ namespace HW
         private void BtnLogOn_Click(object sender, EventArgs e)
         {
             ClsCreate logon = new ClsCreate();
-            logon.checkUsertext();
-            
+            logon.UserNametext = this.UserNametext.Text;
+            logon.PassWordtext = this.PassWordtext.Text;
+            logon.checkUsertext(UserNametext.Text,PassWordtext.Text);
+
+            if(checkBox1.Checked==true)//記憶密碼
+            {
+                Settings.Default.username = UserNametext.Text;
+                Settings.Default.password = PassWordtext.Text;
+                Settings.Default.Save();
+            }
+
 
         }
+
+
     }
 }

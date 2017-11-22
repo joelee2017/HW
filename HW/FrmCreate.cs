@@ -27,7 +27,12 @@ namespace HW
         {
             ClsCreate cls = new ClsCreate();
 
-            cls.setUserNametext();
+            cls.UserNametext = this.UserNametext.Text;
+            cls.PassWordtext = this.PassWordtext.Text;
+            cls.Emailtext = this.Emailtext.Text;
+            cls.ScuExtext = this.ScuExtext.Text;
+            cls.ScuExAAtext = this.ScuExAAtext.Text;
+            cls.createMemeber();//需使用呼叫方法
         }
     }
 }

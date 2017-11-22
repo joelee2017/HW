@@ -15,20 +15,13 @@ namespace HW
     class ClsCreate
     {
 
-        public string UserNametext;
-        public string PassWordtext;
-        public string CheckPassWordtext;
-        public string Emailtext;
-        public string ScuExtext;
-        public string ScuExAAtext;
-        /// <summary>
-        /// 
-        /// </summary>
+        public string UserNametext, PassWordtext, CheckPassWordtext, Emailtext, ScuExtext, ScuExAAtext;
 
-        public void setUserNametext()
+        public void createMemeber()
         {
             using (var cn = new SqlConnection(Settings.Default.NW))
-            using (var adp = new SqlCommand(@"insert into 
+            {
+                using (var adp = new SqlCommand(@"insert into 
                                             Member (
                                             UserName, 
                                             Password, 
@@ -37,30 +30,31 @@ namespace HW
                                             SecuritySolution)
                                             values(
                                             @Name,
-                                            @Password
-                                            @Email
-                                            @SecurityIssues
-                                            @SecuritySolution);", cn))
-            {
-                //adp.CommandType = CommandType.Text;
-                adp.Parameters.Add("UserName", SqlDbType.NVarChar, 16).Value = UserNametext;
-                adp.Parameters.Add("Password", SqlDbType.NVarChar).Value = PassWordtext;
-                adp.Parameters.Add("Email", SqlDbType.NVarChar).Value = Emailtext;
-                adp.Parameters.Add("SecurityIssues", SqlDbType.NVarChar).Value = ScuExtext;
-                adp.Parameters.Add("SecuritySolution", SqlDbType.NVarChar).Value = ScuExAAtext;
-                cn.Open();
-                adp.ExecuteNonQuery();
-               
+                                            @Password,
+                                            @Email,
+                                            @SecurityIssues,
+                                            @SecuritySolution)", cn))
+                {
+
+                    //adp.CommandType = CommandType.Text;
+                    adp.Parameters.Add("@Name", SqlDbType.NVarChar, 16).Value = this.UserNametext;
+                    adp.Parameters.Add("@Password", SqlDbType.NVarChar).Value = this.PassWordtext;
+                    adp.Parameters.Add("@Email", SqlDbType.NVarChar).Value = this.Emailtext;
+                    adp.Parameters.Add("@SecurityIssues", SqlDbType.NVarChar).Value = this.ScuExtext;
+                    adp.Parameters.Add("@SecuritySolution", SqlDbType.NVarChar).Value = this.ScuExAAtext;
+                    cn.Open();
+                    MessageBox.Show("建立成功");
+                    adp.ExecuteNonQuery();
+
+                }
             }
 
         }
 
-        public void checkUsertext()
+        public void checkUsertext(string UserName, string Password)
         {
             using (var cn = new SqlConnection(Settings.Default.NW))
-            using (var adp = new SqlCommand(@"select *
-                                               from Member
-                                              where UserName =@UserName and Password=@Password);", cn))
+            using (var adp = new SqlCommand($"select * from Member where UserName = '{@UserName}' and password = '{@Password}'", cn))
             {
 
                 adp.Parameters.Add("@UserName", SqlDbType.NVarChar, 16).Value = UserNametext;
@@ -68,12 +62,14 @@ namespace HW
                 cn.Open();
                 SqlDataReader dataReader = adp.ExecuteReader();
                 dataReader.Read();
-
                 if (dataReader.HasRows)
                 {
                     if (PassWordtext == dataReader["Password"].ToString())
                     {
                         MessageBox.Show("登入成功");
+                        FrmClsMain fm = new FrmClsMain();
+                        fm.Show();
+ 
                     }
                     else
                     {

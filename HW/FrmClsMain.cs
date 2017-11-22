@@ -20,11 +20,11 @@ namespace HW
 
         private void FrmClsMain_Load1(object sender, EventArgs e)
         {
-            FrmLogOn flogon = new FrmLogOn();
-            if (flogon.ShowDialog() != DialogResult.OK)
-            {
-                this.Close();
-            }
+            //FrmLogOn flogon = new FrmLogOn();
+            //if (flogon.ShowDialog() != DialogResult.OK)
+            //{
+            //    this.Close();
+            //}
         }
 
     }

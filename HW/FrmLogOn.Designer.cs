@@ -158,6 +158,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmLogOn";
             this.Text = "FrmLogOn";
+            this.Load += new System.EventHandler(this.FrmLogOn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
