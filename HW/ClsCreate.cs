@@ -21,7 +21,9 @@ namespace HW
         public string Emailtext;
         public string ScuExtext;
         public string ScuExAAtext;
-
+        /// <summary>
+        /// 
+        /// </summary>
 
         public void setUserNametext()
         {
