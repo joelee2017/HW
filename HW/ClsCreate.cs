@@ -16,7 +16,9 @@ namespace HW
     {
 
         public string UserNametext, PassWordtext, CheckPassWordtext, Emailtext, ScuExtext, ScuExAAtext;
-
+        /// <summary>
+        /// 建立新會員
+        /// </summary>
         public void createMemeber()
         {
             using (var cn = new SqlConnection(Settings.Default.NW))
@@ -50,7 +52,11 @@ namespace HW
             }
 
         }
-
+        /// <summary>
+        /// 帳號密碼確認
+        /// </summary>
+        /// <param name="UserName"></param>
+        /// <param name="Password"></param>
         public void checkUsertext(string UserName, string Password)
         {
             using (var cn = new SqlConnection(Settings.Default.NW))
@@ -82,6 +88,54 @@ namespace HW
                 }
 
             }
+        }
+
+        public string UserForget(string UserName)//void不回傳值
+        {
+            string sytxt = "";
+            using (var cn = new SqlConnection(Settings.Default.NW))
+            using (var adp = new SqlCommand($"select SecurityIssues from Member where UserName = '{@UserName}'", cn))
+            {
+                adp.Parameters.Add("@UserName", SqlDbType.NVarChar, 16).Value = UserName;
+                cn.Open();
+                SqlDataReader dataReader = adp.ExecuteReader();
+               
+                if (dataReader.Read() == true)
+                {
+                    sytxt = dataReader[0].ToString();
+                   
+                }
+                
+                else
+                {
+                    MessageBox.Show("輸入錯誤");
+                }
+            }
+            return sytxt;
+        }
+
+
+        public string UserForgetpassword(string SecuritySolution)//void不回傳值
+        {
+            string Fpassword = "";
+            using (var cn = new SqlConnection(Settings.Default.NW))
+            using (var adp = new SqlCommand($"select Password from Member where SecuritySolution = '{@SecuritySolution}'", cn))
+            {
+                adp.Parameters.Add("@SecuritySolution", SqlDbType.NVarChar, 50).Value = SecuritySolution;
+                cn.Open();
+                SqlDataReader dataReader = adp.ExecuteReader();
+                if (dataReader.Read() == true)
+                {
+                    Fpassword = dataReader[0].ToString();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("輸入錯誤");
+                }
+            }
+            return Fpassword;
+
         }
     }
 }
