@@ -54,5 +54,11 @@ namespace HW
             FrmCreate2 fc = new FrmCreate2();
             fc.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmForget2 ff = new FrmForget2();
+            ff.ShowDialog();
+        }
     }
 }

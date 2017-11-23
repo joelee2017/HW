@@ -67,7 +67,7 @@
             this.UserNametext.Location = new System.Drawing.Point(221, 169);
             this.UserNametext.Name = "UserNametext";
             this.UserNametext.Size = new System.Drawing.Size(219, 22);
-            this.UserNametext.TabIndex = 9;
+            this.UserNametext.TabIndex = 0;
             // 
             // label2
             // 
@@ -128,12 +128,12 @@
             this.passwordtxt.Location = new System.Drawing.Point(221, 261);
             this.passwordtxt.Name = "passwordtxt";
             this.passwordtxt.Size = new System.Drawing.Size(219, 22);
-            this.passwordtxt.TabIndex = 17;
+            this.passwordtxt.TabIndex = 2;
             // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(99, 363);
+            this.label9.Location = new System.Drawing.Point(104, 320);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(175, 24);
             this.label9.TabIndex = 18;
@@ -150,10 +150,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(85, 310);
+            this.button1.Location = new System.Drawing.Point(76, 399);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 33);
-            this.button1.TabIndex = 20;
+            this.button1.TabIndex = 1;
             this.button1.Text = "安全驗證";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -161,10 +161,10 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(301, 310);
+            this.button2.Location = new System.Drawing.Point(299, 399);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 33);
-            this.button2.TabIndex = 21;
+            this.button2.TabIndex = 4;
             this.button2.Text = "確認";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);

@@ -8,13 +8,16 @@ using HW.Properties;
 using System.Data;
 using System.Windows.Forms;
 using System.Security;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+
 
 
 namespace HW
 {
     class ClsCreate
     {
-
+        
         public string UserNametext, PassWordtext, CheckPassWordtext, Emailtext, ScuExtext, ScuExAAtext;
         /// <summary>
         /// 建立新會員
@@ -137,5 +140,8 @@ namespace HW
             return Fpassword;
 
         }
+
+
+
     }
 }

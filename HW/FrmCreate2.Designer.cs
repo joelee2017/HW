@@ -187,6 +187,7 @@
             // FrmCreate2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(486, 473);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.BtnLogOn);
